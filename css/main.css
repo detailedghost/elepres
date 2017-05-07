@@ -1,0 +1,163 @@
+body{
+		margin: 0 auto;
+		background-color: #565051;
+		color: #3B3131;
+		display:flex;
+		flex-flow:row wrap;
+}
+
+a{
+		color: #87AFC7;
+}
+
+body > nav{
+		flex: 1 1 4%;
+}
+
+body > div {
+		flex: 1 1 85%;
+}
+
+#nav-sandwhich{
+		width: 30px;
+		background-color: #FFF;
+		border: 1px solid #999;
+		border-radius: 5px;
+		padding: 5px;
+		box-shadow: 1px 1px 1px 0px rgba(10, 7, 7, 0.43);
+		position: fixed;
+		z-index: 1;
+		top: 10px;
+		left: 3%;
+}
+
+#nav-sandwhich:hover{
+		background-color: #DDD;
+}
+
+#nav-sandwhich.active{
+
+}
+
+#nav-sandwhich{
+		opacity: 1;
+}
+
+#nav-sandwhich > hr{
+		background-color:black;
+		height: 1px;
+		margin: 2px 0px 2px 0px;
+}
+
+#nav-header{
+		background-color: #3c3738;
+		border-right: 3px solid rgba(146,146,255, .8);
+        margin-left: 0px;
+        transition: all 2s;
+        opacity: 1;
+        
+}
+
+#nav-header.hide{
+  margin-left: -200px;
+  opacity: 0;
+}
+
+
+
+#nav-header > ul{
+		margin-top: 50px;
+		list-style: none;
+		padding: 0px;
+}
+
+#nav-header > ul > li{
+		width: 100%;
+		margin-bottom:2px;
+		text-align: center;
+}
+#nav-header > ul > li:hover{
+		background-color:#222;
+}
+#nav-header > ul > li > a{
+		text-decoration:none;
+}
+
+#nav-slide{
+		position: fixed;
+		bottom: 15px;
+		right: 15px;
+		opacity: .4;
+		font-size: 2em;
+        transition: all 1s;
+}
+
+#nav-slide > button{
+		background:transparent;
+		border: none;
+		font-size: 1em;
+}
+#nav-slide > button:hover{
+		color: #FFF;
+}
+#nav-slide > button:active{
+		color: #F0A;
+}
+
+#nav-counter {
+		color: #DDD;
+}
+
+#nav-slide:hover{
+		opacity:1;
+}
+
+#slide-con{
+		overflow: hidden;
+}
+
+div.slide {
+		color: #EEE;
+        margin: 0 auto;
+        width: 80%;
+}
+
+div.slide > h1 {
+		text-align: center;
+}
+
+div.slide.left{
+		display:none;
+}
+
+div.slide.center{
+		display: block;
+}
+
+div.slide.right{
+		display:none;
+}
+div.slide.hide{
+		display: none;
+}
+
+div.slide > div {
+  width: 40%;
+  margin: 0 auto
+}
+
+div.slide > div > img{
+  width: 100%;
+}
+
+#q-thanks {
+}
+
+.spin{
+  animation: spin 7s infinite;
+}
+
+@keyframes spin{
+  0%: { transform: rotate(0deg); }
+  100% {transform: rotate(360deg);}
+}
