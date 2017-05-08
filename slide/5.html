@@ -1,6 +1,123 @@
 <h1>Example</h1>
-<div id="car-con">
+<div id='car-app'>
+<div id='car-app-display'>
+<div id="car-container">
   <img src='img/car.png' id='car' width=128px />
 </div>
-<div id='car-out'>
+<div id='car-control'>
+  <button id='car-up'>V</button>
+  <button id='car-down'>V</button>
+  <button id='car-left'>&lt;</button>
+  <button id='car-right'>&gt;</button>
 </div>
+</div>
+<div id='car-log-con'>
+  <ul id='car-log'>
+    <li>Test</li>
+  </ul>
+</div>
+</div>
+
+<script type='text/javascript'>
+
+var car = document.getElementById('car'), cw = 0, ch = 0;
+let inc = 10;
+
+function printCarAction(act){
+  let log = document.getElementById('car-log'),
+      out = document.createElement('li'),
+      b = document.createElement('strong');
+
+  b.textContent = act;
+  out.classList.add('car-action');
+
+  out.appendChild(b);
+  log.prepend(out);
+}
+
+function carLeft(e){
+  if(e)
+    e.preventDefault();
+
+  car.classList = '';
+  car.classList.add('left');
+
+  let ml = parseInt(car.style.left);
+  if(ml && (ml - inc) > 0){
+    car.style.left = (ml-inc);
+    printCarAction('Going Left!');
+  }
+}
+
+function carRight(e){
+  if(e)
+    e.preventDefault();
+  car.classList = '';
+  car.classList.add('right');
+  
+  let ml = parseInt(car.style.left);
+  if(ml && (ml - inc) < (cw - car.width - inc - 5)){
+    car.style.left = (ml+inc);
+    printCarAction('Going Right!');
+  }
+}
+
+function carUp(e){
+  if(e)
+    e.preventDefault();
+  car.classList = '';
+  car.classList.add('up');
+  let ml = parseInt(car.style.top);
+  if(ml && (ml - inc) > 20){
+    car.style.top = (ml-inc);
+    printCarAction('Going Up!');
+  }
+}
+
+function carDown(e){
+  if(e)
+    e.preventDefault();
+  car.classList = '';
+  car.classList.add('down');
+  let ml = parseInt(car.style.top);
+  if(ml && (ml + inc) < (ch - car.width + 20)){
+    car.style.top = (ml+inc);
+    printCarAction('Going Down!');
+  }
+}
+
+function carReset(){
+  cw = car.parentNode.clientWidth,
+  ch = car.parentNode.clientHeight;
+  car.classList = '';
+  car.style.left = (cw)/3;
+  car.style.top = (ch)/3;
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+    setTimeout(function(){carReset();}, 200);
+    document.getElementById('car-up').addEventListener('click', carUp, false);
+    document.getElementById('car-down').addEventListener('click', carDown, false);
+    document.getElementById('car-left').addEventListener('click', carLeft, false);
+    document.getElementById('car-right').addEventListener('click', carRight, false);
+    document.getElementById('car').addEventListener('click', function(){
+
+      if(car.classList.contains('spin-fast'))
+        car.classList.remove('spin-fast');
+
+      setTimeout(function(){car.classList.add('spin-fast');}, 200);
+
+      printCarAction('Spinning Outta control!');
+    }, false);
+
+    //document.getElementById('car-up').addEventListener('mousedown', carUp, false);
+    //document.getElementById('car-down').addEventListener('mousedown', carDown, false);
+    //document.getElementById('car-left').addEventListener('mousedown', carLeft, false);
+    //document.getElementById('car-right').addEventListener('mousedown', carRight, false);
+}, false);
+
+window.addEventListener('resize', function(){
+  carReset();
+}, false);
+
+</script>

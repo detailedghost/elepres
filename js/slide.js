@@ -39,6 +39,7 @@ function downSlide(){
 
 function init(){
         let links = document.getElementsByClassName('slide-item')
+        let slides = document.getElementById('slide-con').children;
 
 		document.getElementById('nav-left').addEventListener('click', downSlide, false);
 		document.getElementById('nav-right').addEventListener('click',upSlide, false);
@@ -52,6 +53,8 @@ function init(){
             counter.innerHTML = sit;
 			counter.dataset["select"] = sit;
           }, false);
+          console.log(slides[i].children[0].textContent);
+          links[i].textContent = slides[i].children[0].textContent.substring(0, 15) + "...";
         }
 
         document.addEventListener('keydown', function(e){
@@ -60,6 +63,11 @@ function init(){
           if(e.key === "ArrowUp" || e.key == "ArrowRight")
             upSlide();
         }, false);
+
+
+
+
+  slide(9);
 }
 
 document.addEventListener('readystatechange', function(evt){

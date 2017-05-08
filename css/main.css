@@ -11,11 +11,20 @@ a{
 }
 
 body > nav{
-		flex: 1 1 4%;
+		flex: 1 1 10%;
 }
 
 body > div {
 		flex: 1 1 85%;
+}
+
+p {
+  font-size: 1.8em;
+}
+
+ul.big-list{
+  font-size: 2em;
+  font-style: none;
 }
 
 #nav-sandwhich{
@@ -28,7 +37,7 @@ body > div {
 		position: fixed;
 		z-index: 1;
 		top: 10px;
-		left: 3%;
+		left: 5%;
 }
 
 #nav-sandwhich:hover{
@@ -55,7 +64,7 @@ body > div {
         margin-left: 0px;
         transition: all 2s;
         opacity: 1;
-        
+        padding-right: 10px;
 }
 
 #nav-header.hide{
@@ -75,6 +84,7 @@ body > div {
 		width: 100%;
 		margin-bottom:2px;
 		text-align: center;
+        padding-right: 10px;
 }
 #nav-header > ul > li:hover{
 		background-color:#222;
@@ -150,12 +160,80 @@ div.slide > div > img{
   width: 100%;
 }
 
+#car-app{
+  display: flex;
+  flex-flow: row wrap;
+  width:auto;
+}
+
+#car-app-display{
+  flex: 2 1;
+}
+
+#car-container{
+  border: 4px solid #F00;
+  height: 250px;
+  position: relative;
+}
+
+#car-control{
+  width: 200px;
+  position: fixed;
+  bottom: 20px;
+}
+
+#car-control > button{
+  background-color: #CCC;
+  font-size: 1.2em;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+}
+
+#car-control > button:first-child{
+  transform: rotate(180deg);
+}
+
+#car-log-con{
+  flex: 1 1;
+  border: 5px solid yellow;
+  height: 250px;
+  overflow-y: hidden;
+}
+
+#car-log{
+  list-style: none;
+  margin-left: none;
+}
+
 #q-thanks {
+}
+
+#car {
+  width: 96px;
+  position: absolute;
+}
+
+#car.down {
+  transform: rotate(90deg);
+}
+
+#car.up{
+  transform: rotate(270deg);
+}
+
+#car.left{
+  transform: rotate(180deg);
 }
 
 .spin{
   animation: spin 7s infinite;
 }
+
+.spin-fast{
+  animation: spin 3s;
+}
+
+
 
 @keyframes spin{
   0%: { transform: rotate(0deg); }
