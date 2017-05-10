@@ -53,7 +53,6 @@ function init(){
             counter.innerHTML = sit;
 			counter.dataset["select"] = sit;
           }, false);
-          console.log(slides[i].children[0].textContent);
           links[i].textContent = slides[i].children[0].textContent.substring(0, 15) + "...";
         }
 
@@ -63,11 +62,6 @@ function init(){
           if(e.key === "ArrowUp" || e.key == "ArrowRight")
             upSlide();
         }, false);
-
-
-
-
-  slide(9);
 }
 
 document.addEventListener('readystatechange', function(evt){

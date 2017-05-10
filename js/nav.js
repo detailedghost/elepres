@@ -1,3 +1,4 @@
+/// This file deals with the navigation on the left
 function navInit(){
 		let s = document.getElementById('nav-sandwhich');
 		s.addEventListener('click', function(){

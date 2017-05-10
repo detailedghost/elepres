@@ -12,8 +12,12 @@
 </div>
 </div>
 <div id='car-log-con'>
+  <h3>Actions</h3>
   <ul id='car-log'>
-    <li>Test</li>
+    <li class='car-action'>exec car-game.exe</li>
+    <li class='car-action'>loading....</li>
+    <li class='car-action'>loading....</li>
+    <li class='car-action'>success!</li>
   </ul>
 </div>
 </div>
@@ -22,17 +26,21 @@
 
 var car = document.getElementById('car'), cw = 0, ch = 0;
 let inc = 10;
+let log = document.getElementById('car-log');
+let lcount = 0;
 
 function printCarAction(act){
-  let log = document.getElementById('car-log'),
-      out = document.createElement('li'),
+      let out = document.createElement('li'),
       b = document.createElement('strong');
 
-  b.textContent = act;
+  b.textContent = '> ' + act;
   out.classList.add('car-action');
 
   out.appendChild(b);
-  log.prepend(out);
+  log.appendChild(out);
+  lcount += 1;
+  if(lcount > (log.parentNode.clientHeight / log.children[0].clientHeight - 10))
+    log.removeChild(log.children[0]);
 }
 
 function carLeft(e){
@@ -45,7 +53,7 @@ function carLeft(e){
   let ml = parseInt(car.style.left);
   if(ml && (ml - inc) > 0){
     car.style.left = (ml-inc);
-    printCarAction('Going Left!');
+    printCarAction('carLeft();');
   }
 }
 
@@ -58,7 +66,7 @@ function carRight(e){
   let ml = parseInt(car.style.left);
   if(ml && (ml - inc) < (cw - car.width - inc - 5)){
     car.style.left = (ml+inc);
-    printCarAction('Going Right!');
+    printCarAction('carRight();');
   }
 }
 
@@ -70,7 +78,7 @@ function carUp(e){
   let ml = parseInt(car.style.top);
   if(ml && (ml - inc) > 20){
     car.style.top = (ml-inc);
-    printCarAction('Going Up!');
+    printCarAction('carUp();');
   }
 }
 
@@ -82,7 +90,7 @@ function carDown(e){
   let ml = parseInt(car.style.top);
   if(ml && (ml + inc) < (ch - car.width + 20)){
     car.style.top = (ml+inc);
-    printCarAction('Going Down!');
+    printCarAction('carDown();');
   }
 }
 
@@ -94,7 +102,7 @@ function carReset(){
   car.style.top = (ch)/3;
 }
 
-document.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('DOMContentLoaded', function(){
     setTimeout(function(){carReset();}, 200);
     document.getElementById('car-up').addEventListener('click', carUp, false);
     document.getElementById('car-down').addEventListener('click', carDown, false);
@@ -119,5 +127,7 @@ document.addEventListener('DOMContentLoaded', function(){
 window.addEventListener('resize', function(){
   carReset();
 }, false);
+
+carReset();
 
 </script>
