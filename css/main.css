@@ -37,7 +37,7 @@ ul.fun-list{
   font-size: 2.5em;
   margin: 10px 0px 0px 0px;
   padding: 30px 0px 30px 0px;
-  border-right: 10px solid red;
+  border-right: 10px solid #666;
 }
 
 ul.fun-list > li{
@@ -201,7 +201,6 @@ h3{
 }
 
 #slide-con{
-		overflow: hidden;
 }
 
 div.slide {
@@ -242,7 +241,7 @@ div.slide > div > img{
   display: flex;
   flex-flow: row wrap;
   width:auto;
-  height: 40%;
+  height: 300px;
 }
 
 #car-app-display{
@@ -321,6 +320,33 @@ div.slide > div > img{
   background-color: rgba(255, 255, 255, .8);
   padding: 30px;
 }
+
+#question-form {
+  margin: 0 auto;
+  color: #FFF;
+  width: 100%;
+  text-align: center;
+}
+
+#question-form > div{
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+#question-form > div:first-child{
+  margin-top: 20px;
+}
+
+#question-form label{
+  font-size: 2em;
+}
+
+#question-form textarea{
+  width: 60%;
+  resize: vertical;
+  height: 200px;
+}
+
 
 .spin{
   animation: spin 7s alternate infinite;

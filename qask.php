@@ -14,9 +14,14 @@ if($_POST["question-text"] != null){
     $q = preg_replace('/'.$bad.'/i', '****', $q);
     //$q = sqlite_escape_string($q);
     $result = $q;
+
+    $dbhandle = sqlite_open('pres.db', 0666, $error);
+    if(!dbhandle) die($error);
+
+    $state = 'insert into
 }
 
-if($_POST["reset-password"] && $_POST["reset-password"] == 's3cr3t'){
+if(isset($_POST["reset-password"]) && $_POST["reset-password"] == 's3cr3t'){
   $result = 'reset!';
 }
     
@@ -32,7 +37,7 @@ if($_POST["reset-password"] && $_POST["reset-password"] == 's3cr3t'){
 </head>
 <body>
 <div id='q-thanks'>
-<h1>Thanks for the question!</h1>
+<h1 style='color: #FFF'>Thanks for the question!</h1>
 <p><?php echo $result ?></p>
 </div>
 </form>

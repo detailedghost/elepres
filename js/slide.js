@@ -14,6 +14,8 @@ function slide(att){
 				else
 					c.classList.add('hide');
 		}
+        if(att == 5)
+          carReset();
 }
 
 function upSlide(){
@@ -53,7 +55,8 @@ function init(){
             counter.innerHTML = sit;
 			counter.dataset["select"] = sit;
           }, false);
-          links[i].textContent = slides[i].children[0].textContent.substring(0, 15) + "...";
+          if(slides && slides[i])
+            links[i].textContent = slides[i].children[0].textContent.substring(0, 15) + "...";
         }
 
         document.addEventListener('keydown', function(e){

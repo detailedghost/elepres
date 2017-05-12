@@ -9,10 +9,16 @@
 	<script type='text/javascript' src='js/slide.js'></script>
 </head>
 <body>
-<form action='qask.php' method='POST'>
+<form action='qask.php' method='POST' id='question-form'>
+<div>
 <label for='question-text'>Question<label>
+</div>
+<div>
 <textarea name='question-text' id='question-text'></textarea>
+</div>
+<div>
 <input type='submit' value='ASK'/>
+</div>
 </form>
 </body>
 </html>
